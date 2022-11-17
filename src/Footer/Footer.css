@@ -24,3 +24,7 @@
   font-size: 1.4 rem;
   text-decoration: none;
 }
+
+.Footer img {
+  max-width: 44px;
+}

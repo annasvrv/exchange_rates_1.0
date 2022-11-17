@@ -3,9 +3,9 @@ import "./Header.css";
 import Nav from "../Nav/Nav";
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <div className="Header">

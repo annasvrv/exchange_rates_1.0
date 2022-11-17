@@ -2,9 +2,9 @@ import React from "react";
 import "./Nav.css";
 
 export default class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <div className="header-nav">

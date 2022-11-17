@@ -3,9 +3,9 @@ import "./Footer.css";
 import logo from "./paypal_logo.jpg";
 
 export default class Footer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <footer id="footer" className="Footer">
