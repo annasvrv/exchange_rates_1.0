@@ -1,33 +1,43 @@
-import React from "react";
-
+import React, { useState } from "react";
+import axios from "axios";
 import "./Rate.css";
 
-export default class Rate extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  render() {
-    return (
-      <div className="Rate">
-        <h3>Exchange Rate on November 20 2022</h3>
-        <div className="flex-container">
-          <div className="block flex-item">
-            <div className="currency-name">USD</div>
-            <div className="currency-in">1500</div>
-            <div className="currency-out">1200</div>
-          </div>
-          <div className="block flex-item">
-            <div className="currency-name">EUR</div>
-            <div className="currency-in">1500</div>
-            <div className="currency-out">1200</div>
-          </div>
-          <div className="block flex-item">
-            <div className="currency-name">UA</div>
-            <div className="currency-in">1500</div>
-            <div className="currency-out">1200</div>
-          </div>
-        </div>
-      </div>
-    );
+export default function Rate() {
+  let currency = ["CAD", "GBP", "UAH", "USD"];
+  let [currencyRate, setCurrencyRate] = useState({});
+  let [date, setDate] = useState(" ");
+
+  axios.get(`https://api.exchangerate.host/latest?`).then(showRates);
+
+  function showRates(response) {
+    // console.log(response.data);
+    // console.log(response.data.rates);
+    // console.log(response.data.base);
+    setDate(response.data.date);
+    let result = currencyRate;
+    for (let i = 0; i < currency.length; i++) {
+      result[currency[i]] = response.data.rates[currency[i]];
+    }
+
+    setCurrencyRate(result);
+    // console.log(currencyRate);
   }
+
+  return (
+    <div className="Rate">
+      <h3>EUR Exchange Rate on {date}</h3>
+      <div className="flex-container">
+        {Object.keys(currencyRate).map((currency, index) => {
+          return (
+            <div className="block flex-item" key={index}>
+              <div className="currency-name">{currency}</div>
+              <div className="currency-in">
+                {currencyRate[currency].toFixed(2)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
