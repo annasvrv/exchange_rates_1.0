@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Calc from "../Calc/Calc";
 import "./Rate.css";
 
 export default function Rate() {
-  let currency = ["CAD", "GBP", "UAH", "USD"];
+  let currency = ["USD", "GBP", "UAH", "CAD"];
   let [currencyRate, setCurrencyRate] = useState({});
   let [date, setDate] = useState(" ");
 
-  axios.get(`https://api.exchangerate.host/latest?`).then(showRates);
+  let apiUrl = `https://api.exchangerate.host/latest?/`;
+  axios.get(apiUrl).then(showRates);
 
   function showRates(response) {
     // console.log(response.data);
     // console.log(response.data.rates);
     // console.log(response.data.base);
     setDate(response.data.date);
+
     let result = currencyRate;
     for (let i = 0; i < currency.length; i++) {
       result[currency[i]] = response.data.rates[currency[i]];
     }
-
     setCurrencyRate(result);
     // console.log(currencyRate);
   }
@@ -38,6 +40,7 @@ export default function Rate() {
           );
         })}
       </div>
+      <Calc rate={currencyRate} />
     </div>
   );
 }

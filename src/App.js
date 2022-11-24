@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Rate from "./Rate/Rate";
@@ -16,41 +15,6 @@ class App extends React.Component {
         <div className="container">
           <main>
             <Rate />
-            <h3> Calculator </h3>
-            <div className="block">
-              <div>I want to:</div>
-              <div>
-                <label>
-                  <input type="radio" name="radio" defaultValue="0" />
-                  Buy
-                </label>
-              </div>
-              <div>
-                <label>
-                  <input type="radio" name="radio" defaultValue="1" />
-                  Sell
-                </label>
-              </div>
-
-              <div>
-                <input type="number" defaultValue="150" />
-                <select name="" id="">
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="UA">UA</option>
-                </select>
-              </div>
-
-              <div>
-                <h4>Result</h4>
-                <ul className="calc-res">
-                  <li>EUR 150</li>
-                  <li>EUR 150</li>
-                  <li>EUR 150</li>
-                  <li>EUR 150</li>
-                </ul>
-              </div>
-            </div>
           </main>
         </div>
 
@@ -64,8 +28,7 @@ class App extends React.Component {
               social media, advertising and analytics partners who may combine
               it <br />
               with other information that you have provided to them or that they
-              have collected from your use of their services. &nbsp;{" "}
-              <br />
+              have collected from your use of their services. &nbsp; <br />
               <button className="btn btn-primary btm-sm">OK</button>
             </div>
           </div>
