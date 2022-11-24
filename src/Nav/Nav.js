@@ -15,10 +15,7 @@ export default class Nav extends React.Component {
                 <a href="/">Main</a>
               </li>
               <li>
-                <a href="/">Exchnge points</a>
-              </li>
-              <li>
-                <a href="/">Contacts</a>
+                <a href="/About">About</a>
               </li>
             </ul>
           </nav>

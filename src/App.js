@@ -1,8 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Rate from "./Rate/Rate";
+import About from "./About/About";
 
 class App extends React.Component {
   // constructor(props) {
@@ -14,7 +16,12 @@ class App extends React.Component {
         <Header />
         <div className="container">
           <main>
-            <Rate />
+            <Router>
+              <Routes>
+                <Route exact path="/" element={<Rate />} />
+                <Route exact path="/About" element={<About />} />
+              </Routes>
+            </Router>
           </main>
         </div>
 
